@@ -1,0 +1,91 @@
+{
+  "name": "auto-default-file-extension",
+  "displayName": "Auto Default File Extension",
+  "description": "Automatically assigns an extension to new files based on the workspace preference or the most used extension (respecting .gitignore).",
+  "version": "1.0.0",
+  "publisher": "seu-publisher",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:autoDefaultFileExtension.newFile"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Auto Default File Extension",
+      "properties": {
+        "autoDefaultFileExtension.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "markdownDescription": "If false in this workspace, the extension will not perform renames, detection, or auto-save."
+        },
+        "autoDefaultFileExtension.preferredExtension": {
+          "type": "string",
+          "description": "Default extension for new files (e.g. .ts, .py, .js). Leave empty to detect by frequency in the workspace."
+        },
+        "autoDefaultFileExtension.autoSaveUntitled": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true, 'Untitled' files (e.g. created by double clicking the tab bar) will be automatically saved in the workspace root with the determined/dominant extension."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "autoDefaultFileExtension.newFile",
+        "title": "Create New File with Automatic Extension"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "autoDefaultFileExtension.newFile",
+        "key": "ctrl+alt+n",
+        "when": "resourceFolder || editorTextFocus"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "autoDefaultFileExtension.newFile"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "autoDefaultFileExtension.newFile",
+          "group": "navigation@1",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Philip-Carneiro/autoDefaultFileExtension.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Philip-Carneiro/autoDefaultFileExtension/issues"
+  },
+  "homepage": "https://github.com/Philip-Carneiro/autoDefaultFileExtension#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.86.0",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "ignore": "^5.3.0"
+  }
+}
