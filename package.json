@@ -3,7 +3,7 @@
   "displayName": "Auto Default File Extension",
   "description": "Automatically assigns an extension to new files based on the workspace preference or the most used extension (respecting .gitignore).",
   "version": "1.0.0",
-  "publisher": "seu-publisher",
+  "publisher": "PhilipCarneiro",
   "engines": {
     "vscode": "^1.86.0"
   },
