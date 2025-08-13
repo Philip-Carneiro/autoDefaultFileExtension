@@ -1,7 +1,5 @@
 # Changelog
 
-Format based on "Keep a Changelog" and adherent to Semantic Versioning (SemVer).
-
 ## [1.0.0] - 2025-08-13
 
 ### Added
