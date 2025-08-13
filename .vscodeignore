@@ -1,0 +1,15 @@
+# Exclusions for VSIX packaging
+**/*.map
+src/**/*.ts
+.vscode/
+.git/
+.gitignore
+node_modules/**/test/**
+node_modules/**/docs/**
+node_modules/**/examples/**
+node_modules/.bin/
+README.old.md
+tests/
+coverage/
+.yarn/
+*.log
